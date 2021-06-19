@@ -1,0 +1,207 @@
+		
+INSERT INTO employee (surname, name, patronymic, address, date_birth, military_duty)
+VALUES		('Иванов', 'Иван', 'Иванович', 'Новосибирск, ул. Красный проспект, 74 -99', '1981.12.25', 'военнообязанный'),
+		('Сидорова', 'Агафья', 'Павловна', 'Новосибирск, ул. Красноармейская, 7 -35', '1978.01.23', 'в запасе'),
+		('Трамп', 'Игорь', 'Васильевич', 'Новосибирск, ул. Маркса, 56 - 159', '1990.08.12', 'военнообязанный'),
+		('Агилера', 'Кристина', 'Марковна', 'Новосибирск, ул. Петухова, 71 -98', '1999.05.25', 'невоеннообязанный'),
+		('Васильев', 'Василий', 'Васильевич', 'Новосибирск, ул. Маркса, 32 - 9', '1975.04.09', 'в запасе'),
+		('Сидоров', 'Игорь', 'Павлович', 'Новосибирск, ул. Красноармейская, 7 - 35', '1976.11.10', 'в запасе'),
+		('Столптман', 'Марк', 'Генрихович', 'Новосибирск, ул. Октябрьская, 98 - 82', '1999.09.18', 'военнообязанный'),
+		('Кузнецов', 'Андрей', 'Афанасьевич', 'Новосибирск, ул. Танкистов, 56 - 32', '1984.10.06', 'в запасе'),
+		('Байден', 'Роберт', 'Степанович', 'НСО, п. Юный Ленинец, ул. Солнечная, 58', '1963.03.18', 'в запасе');
+		
+INSERT INTO passport (series, number, date_issue, issued_by, id_employee_employee)
+VALUES		(1234, 123456, '1995-12-27', 'УФМС России в Центральном районе г. Новосибирска', 1),	
+		(4525, 952347, '1992.02.21', 'УФМС России в Центральном районе г. Новосибирска', 2),
+		(1235, 364972, '2004.09.08', 'УФМС России в Ленинском районе г. Новосибирска', 3),
+		(9547, 246791, '2013.06.27', 'УФМС России в Кировском районе г. Новосибирска', 4),
+		(6521, 924371, '1989.05.15', 'УФМС России в Ленинском районе г. Новосибирска', 5),
+		(1326, 748513, '1990.12.04', 'УФМС России в Центральном районе г. Новосибирска', 6),
+		(7813, 932647, '2013.10.09', 'УФМС России в Октябрьском районе г. Новосибирска', 7),
+		(9537, 329413, '2003.04.19', 'УФМС России в Дзержинском районе г. Новосибирска', 8),
+		(5423, 326718, '2012.11.03', 'УФМС России в Кировском районе г. Новосибирска', 9);	
+
+INSERT INTO department (dep_name)
+VALUES		('Администрация'),
+		('Инженерный'),
+		('Склад'),
+		('Бухгалтерия');
+		
+INSERT INTO staffing (title, rate, id_department_department, salary)
+VALUES		('Директор', 1, 1, 150000),
+		('Главный бухгалтер', 1, 4, 95000),
+		('Технический директор', 1, 2, 95000),
+		('сервис-инженер', 4, 2, 80000),
+		('Начальник склада', 1, 3, 50000),
+		('Грузчик', 2, 3, 35000),
+		('Бухгалтер', 2, 4, 40000);
+		
+INSERT INTO reception (order_date, cause)
+VALUES	('2018.05.31', 'Назначить Иванова И.И. директором - исполнение решения единственного учредителя'),
+		('2018.05.31', 'Принять Сидорову А.П. гл. бухгалтером'),
+		('2018.05.31', 'Принять Трамп И.В. техническим директором'),
+		('2018.06.18', 'Принять Васильева В.В. сервис-инженером'),
+		('2018.06.18', 'Принять Байдена Р.С. начальником склада'),
+		('2018.08.03', 'Принять Сидорова И.П. сервис-инженером'),
+		('2018.09.22', 'Принять Столтмана М.Г. сервис-инженером'),
+		('2018.10.04', 'Принять Агилеру К.М. бухгалтером'),
+		('2018.09.22', 'Принять Кузнецова А.А. грузчиком');
+		
+INSERT INTO position (amount_rate, surcharge, id_employee_employee,order_num_reception, id_staffing_staffing)
+VALUES		(1, 1, 1, 1, 1),
+		(1, 1, 2, 2, 2),
+		(1, 1, 3, 3, 3),
+		(1.25, 1, 5, 4, 4),
+		(1, 1.25, 9, 5, 5),
+		(1, 1, 6, 6, 4),
+		(1, 1, 7, 7, 4),
+		(1, 1, 4, 8, 7),
+		(1, 1, 8, 9, 6);
+		
+INSERT INTO business_trip (city, target, date_begin)
+VALUES		('Норильск', 'Запуск, установка', '2020.01.22'),
+		('Владивосток', 'Запуск, установка', '2020.02.17'),
+		('Самара', 'Сервисное обслуживание', '2020.02.27'),
+		('Екатеринбург', 'Сервисное обслуживание', '2020.03.22'),
+		('Ижевск', 'Демонтаж, перевозка, запуск', '2020.04.08'),
+		('Норильск', 'Уже сломали?!...', '2020.06.24'),
+		('Владимир', 'Сервисное обслуживание', '2020.06.24'),
+		('Калуга', 'Семинар бухучет форевер', '2020.07.06');
+		
+INSERT INTO trip_report (prepaid_expense, id_employee_employee, id_trip_business_trip)
+VALUES		(15000, 5, 1),
+			(15000, 6, 1),
+			(25000, 7, 2),
+			(20000, 5, 3),
+			(20000, 6, 4),
+			(30000, 3, 5),
+			(30000, 7, 5),
+			(16000, 6, 6),
+			(12000, 6, 7),
+			(16000, 2, 8),
+			(12000, 4, 8);
+			
+INSERT INTO expenses (purpose_payment, recipient, sum, id_trip_report_trip_report)
+VALUES	('Авиабилеты', 'Норавиа', 18000, 1),
+		('Гостиница', 'Норильск', 5400, 1),
+		('Суточные', 'Васильев', 2500, 1),
+		('Авиабилеты', 'Норавиа', 18000, 2),
+		('Гостиница', 'Норильск', 5400, 2),
+		('Суточные', 'Сидоров', 2500, 2),
+		('Авиабилеты', 'Владивосток аэро спейс', 28000, 3),
+		('Суточные', 'Столптман', 2000, 3),
+		('Авиабилеты', 'Самара аиркрафт', 12000, 4),
+		('Суточные', 'Васильев', 2500, 4),
+		('Гостиница', 'Самара-городок', 5400, 4),
+		('Авиабилеты', 'ЕКБ-авиа', 10000, 5),
+		('Суточные', 'Сидоров', 2500, 5),
+		('Билеты', 'РЖД', 4300, 6),
+		('Гостиница', 'Калашникофф', 10000, 6),
+		('Суточные', 'Трамп', 2500, 6),
+		('Билеты', 'РЖД', 4300, 7),
+		('Гостиница', 'Калашникофф', 10000, 7),
+		('Суточные', 'Столптман', 2500, 7),
+		('Авиабилеты', 'Норавиа', 19800, 8),
+		('Гостиница', 'Северное сияние', 9000, 8),
+		('Суточные', 'Сидоров', 4320, 8),
+		('Билеты', 'РЖД', 5200, 9),
+		('Суточные', 'Сидоров', 3200, 9),
+		('Суточные', 'Сидорова', 8600, 10),
+		('Билеты', 'РЖД', 8230, 10),
+		('Гостиница', 'Калуга хелс энд каре спа ресерч', 33200, 10),
+		('Суточные', 'Агилера', 8600, 11),
+		('Билеты', 'РЖД', 8230, 11),
+		('Гостиница', 'Калуга хелс энд каре спа ресерч', 33200, 11);			
+			
+INSERT INTO family_info (marital_status, id_employee_employee)
+VALUES		('женат', 1),
+		('замужем', 2),
+		('не женат', 3),
+		('не замужем', 4),
+		('женат', 5),
+		('женат', 6),
+		('не женат', 7),
+		('не женат', 8),
+		('женат', 9);			
+			
+INSERT INTO family_members (surname, name, patronomic, relation, date_birth, dependents, id_family_family_info) 
+VALUES 	('Иванова', 'Мария', 'Владимировна', 'супруга', '1985.12.12', FALSE, 1),
+		('Иванова', 'Дарья', 'Ивановна', 'дочь', '2007.07.24', TRUE, 1),
+		('Сидоров', 'Игорь', 'Павлович', 'супруг', '1976.11.10', FALSE, 2),
+		('Сидоров', 'Денис', 'Игоревич', 'сын', '2000.04.17', FALSE, 2),
+		('Васильева', 'Василина', 'Васильевна', 'супруга', '1974.03.07', FALSE, 5),
+		('Васильева', 'Наталья', 'Васильевна', 'дочь', '1998.08.16', FALSE, 5),
+		('Сидорова', 'Агафья', 'Павловна', 'супруга', '1978.01.23', FALSE, 6),
+		('Сидоров', 'Денис', 'Игоревич', 'сын', '2000.04.17', FALSE, 6),
+		('Байден', 'Иван', 'Робертович', 'сын', '1989.11.22', FALSE, 9);		
+			
+------------- ЗАПРОСЫ --------------------
+
+SELECT id_employee, surname, name, title FROM employee
+JOIN position ON position.id_employee_employee = employee.id_employee
+JOIN staffing ON staffing.id_staffing = position.id_staffing_staffing
+
+SELECT id_employee, surname, name, city, target FROM employee
+JOIN trip_report ON employee.id_employee = trip_report.id_employee_employee
+JOIN business_trip ON trip_report.id_trip_business_trip = business_trip.id_trip	
+
+SELECT id_employee, surname, name, city, target purpose_payment, recipient, sum FROM employee
+JOIN trip_report ON employee.id_employee = trip_report.id_employee_employee
+JOIN business_trip ON trip_report.id_trip_business_trip = business_trip.id_trip
+JOIN expenses ON trip_report.id_trip_report = id_trip_report_trip_report
+
+SELECT employee.surname, employee.name, marital_status, family_members.surname, family_members.name, relation FROM employee
+LEFT JOIN family_info ON employee.id_employee = family_info.id_employee_employee
+LEFT JOIN family_members ON family_info.id_family = family_members.id_family_family_info
+		
+SELECT id_department, dep_name, ROUND(SUM(salary::numeric * rate::numeric) / SUM(rate::numeric), 2)::money AS average 
+FROM staffing
+JOIN department ON department.id_department = staffing.id_department_department
+GROUP BY id_department
+ORDER BY id_department
+
+SELECT id_department, SUM(sum), dep_name FROM expenses
+JOIN trip_report ON trip_report.id_trip_report = expenses.id_trip_report_trip_report
+JOIN employee ON employee.id_employee = trip_report.id_employee_employee
+JOIN position ON position.id_employee_employee = employee.id_employee
+JOIN staffing ON staffing.id_staffing = position.id_staffing_staffing
+JOIN department ON department.id_department = staffing.id_department_department
+--GROUP BY dep_name
+--ORDER BY dep_name
+GROUP BY id_department
+ORDER BY id_department;	
+
+
+ax_postgres=# SELECT id_department, dep_name, ROUND(SUM(salary::numeric * rate::numeric) / SUM(rate::numeric), 2)::money AS average 
+ax_postgres-# FROM staffing
+ax_postgres-# JOIN department ON department.id_department = staffing.id_department_department
+ax_postgres-# GROUP BY id_department
+ax_postgres-# ORDER BY id_department
+ax_postgres-# ;
+ id_department |   dep_name    |   average   
+---------------+---------------+-------------
+             1 | Администрация | $150,000.00
+             2 | Инженерный    |  $83,000.00
+             3 | Склад         |  $40,000.00
+             4 | Бухгалтерия   |  $58,333.33
+(4 rows)
+
+ax_postgres=# SELECT id_department, SUM(sum), dep_name FROM expenses
+ax_postgres-# JOIN trip_report ON trip_report.id_trip_report = expenses.id_trip_report_trip_report
+ax_postgres-# JOIN employee ON employee.id_employee = trip_report.id_employee_employee
+ax_postgres-# JOIN position ON position.id_employee_employee = employee.id_employee
+ax_postgres-# JOIN staffing ON staffing.id_staffing = position.id_staffing_staffing
+ax_postgres-# JOIN department ON department.id_department = staffing.id_department_department
+ax_postgres-# --GROUP BY dep_name
+ax_postgres-# --ORDER BY dep_name
+ax_postgres-# GROUP BY id_department
+ax_postgres-# ORDER BY id_department;
+ id_department |     sum     |  dep_name   
+---------------+-------------+-------------
+             2 | $189,320.00 | Инженерный
+             4 | $100,060.00 | Бухгалтерия
+(2 rows)
+
+
+
+		

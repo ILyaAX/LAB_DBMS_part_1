@@ -1,0 +1,59 @@
+REVOKE CREATE ON SCHEMA public FROM public
+REVOKE ALL ON DATABASE ax_postgres FROM public
+
+CREATE ROLE admin_db
+GRANT CONNECT ON DATABASE ax_postgres TO admin_db
+GRANT USAGE ON SCHEMA public TO admin_db
+GRANT CREATE ON SCHEMA public TO admin_db
+GRANT CREATE ON DATABASE ax_postgres TO admin_db
+GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES, TRIGGER ON ALL TABLES
+IN SCHEMA public TO admin_db
+
+CREATE USER sidorov WITH PASSWORD '1122'
+GRANT admin_db TO sidorov
+
+
+CREATE ROLE director
+GRANT CONNECT ON DATABASE ax_postgres TO director
+GRANT USAGE ON SCHEMA public TO director
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO director
+
+CREATE USER ivanov WITH PASSWORD '1111'
+GRANT director TO ivanov
+
+
+
+CREATE ROLE engineer
+GRANT CONNECT ON DATABASE ax_postgres TO engineer
+GRANT USAGE ON SCHEMA public TO engineer
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE 
+public.employee, public.trip_report, public.business_trip, public.expenses
+TO engineer
+
+CREATE USER trump WITH PASSWORD '2222'
+GRANT engineer TO trump
+
+
+ax_postgres=# SELECT rolname, rolsuper, rolcreaterole, rolcreatedb, rolcanlogin, oid FROM pg_roles;
+
+          rolname          | rolsuper | rolcreaterole | rolcreatedb | rolcanlogin |  oid  
+---------------------------+----------+---------------+-------------+-------------+-------
+ pg_monitor                | f        | f             | f           | f           |  3373
+ pg_read_all_settings      | f        | f             | f           | f           |  3374
+ pg_read_all_stats         | f        | f             | f           | f           |  3375
+ pg_stat_scan_tables       | f        | f             | f           | f           |  3377
+ pg_read_server_files      | f        | f             | f           | f           |  4569
+ pg_write_server_files     | f        | f             | f           | f           |  4570
+ pg_execute_server_program | f        | f             | f           | f           |  4571
+ pg_signal_backend         | f        | f             | f           | f           |  4200
+ ax_postgres               | t        | t             | t           | t           |    10
+ admin_db                  | f        | f             | f           | f           | 16518
+ sidorov                   | f        | f             | f           | t           | 16519
+ director                  | f        | f             | f           | f           | 16520
+ ivanov                    | f        | f             | f           | t           | 16521
+ engineer                  | f        | f             | f           | f           | 16522
+ trump                     | f        | f             | f           | t           | 16523
+(15 rows)
+
+
